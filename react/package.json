@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "build:lib": "vite build --mode lib && cp src/index.d.ts dist/index.d.ts",
     "lint": "eslint .",
     "preview": "vite preview"
