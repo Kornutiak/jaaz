@@ -34,6 +34,7 @@ COPY server/ /app/server/
 
 # Готовый фронт кладём рядом с сервером
 COPY --from=frontend /app/react/dist /app/server/react-dist
+ENV UI_DIST_DIR=/app/server/react-dist
 
 # Порт жёстко задаём внутри образа (переменные Railway не требуются)
 ENV PORT=8000
