@@ -97,11 +97,12 @@ if __name__ == "__main__":
     os.environ["no_proxy"] = os.environ["NO_PROXY"] = ",".join(
         sorted(_bypass | current - {""}))
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--port', type=int, default=57988,
-                        help='Port to run the server on')
+   parser = argparse.ArgumentParser()
+parser.add_argument('--port', type=int, default=int(os.getenv("PORT", 8000)),
+                    help='Port to run the server on')
     args = parser.parse_args()
     import uvicorn
     print("🌟Starting server, UI_DIST_DIR:", os.environ.get('UI_DIST_DIR'))
 
-    uvicorn.run(socket_app, host="127.0.0.1", port=args.port)
+    uvicorn.run(socket_app, host="0.0.0.0", port=args.port)
+
